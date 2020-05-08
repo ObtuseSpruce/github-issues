@@ -8,8 +8,10 @@ import axios from 'axios'
 import async from 'async'
 
 const Content = (props) => {
+    // This state is where we are putting the API data
     let [gitIssue, setGitIssue] = useState([])
 
+    //  The API call using axios
     useEffect(() => {
         const githubApi = async () => {
             await axios.get("https://api.github.com/repos/facebook/react/issues?page=1&per_page=10")
@@ -22,17 +24,12 @@ const Content = (props) => {
         }
         githubApi()
     }, [] )
-    // let fakeApi = [
-    //     {title : "i've got issues", id : 1888, body: "stuff goes here" },
-    //     {title : "Another issue", id : 9999, body: "More complaints" },
-    //     {title : "Github Api is whack", id : 666, body: "Why can't I request 9000 api attempts in a minute?" },
-    // ]
+
     return(
         <div>
             <Route exact path="/" component={Landing} />
             <Route path="/issues" render={() => (
                 <Issues gitIssue={gitIssue} />
-                // <Issues fakeApi={fakeApi}/>
             )}/>
             <Route exact path="/view/0" component={View} />
 

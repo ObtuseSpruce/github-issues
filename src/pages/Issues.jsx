@@ -5,6 +5,7 @@ import {Button} from '@material-ui/core'
 import Contribute from '../components/Contribute';
 
 const Issues = (props) => {
+    // maps out the data which was passed in from Content component
     let listIssues = props.gitIssue.map((issue, index)=> {
         return(
             <div className="githubIdeas">
@@ -13,14 +14,6 @@ const Issues = (props) => {
             </div>
         )
     })
-    // let listFake = props.fakeApi.map((issue, index)=> {
-    //     return(
-    //         <div className="githubIdeas">
-    //             <Link to="/view/{issue.id}"><Button>{issue.title}</Button></Link>
-    //             <p>{issue.body}</p>
-    //         </div>
-    //     )
-    // })
     return(
     <Container>
         <div>
